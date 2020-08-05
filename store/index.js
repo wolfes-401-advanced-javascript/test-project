@@ -10,13 +10,14 @@ export default function Index() {
 
   const getPermissions = async () => {
     const { status } = await Permissions.askAsync(Permissions.CONTACTS);
-    console.log('Asking for permission');
+    // console.log('Asking for permission');
     setPermissions(status === 'granted' ? true : false);
   }
 
   const showContacts = async () => {
     const contactList = await Contacts.getContactsAsync();
     setContacts(contactList.data);
+    console.log('this is the contact list', contactList);
   }
 
   const call = (contact) => {
@@ -31,6 +32,7 @@ export default function Index() {
     getPermissions();
   }, []);
 
-  return showContacts();
+  // console.log('this is showContacts', showContacts);  
+  return { showContacts, contacts };
 
 }

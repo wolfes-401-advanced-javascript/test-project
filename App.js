@@ -8,7 +8,8 @@ import Index from './store/index.js'
 
 export default function App() {
   
-  let showContacts = Index();
+  let { showContacts, contacts } = Index();
+  
 
   return (
     <View style={styles.container}>
